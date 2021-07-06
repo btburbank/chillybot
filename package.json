@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/jaycammarano/chillybot#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "simple-lastfm": "^1.0.6",
     "ttapi": "^4.0.3"
   }
 }

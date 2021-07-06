@@ -10,20 +10,31 @@
 
 
 /*******************************BeginSetUp*****************************************************************************/
+require('dotenv').config()
 var Bot = require('ttapi');
+var Lastfm = require('simple-lastfm');
+
 var AUTH = process.env["AUTH"]; //set the auth of your bot here.
 var USERID = process.env["USERID"]; //set the userid of your bot here.
 var ROOMID = process.env["ROOMID"]; //set the roomid of the room you want the bot to go to here.
-var playLimit = process.env["playLimit"] || 4; //set the playlimit here (default 4 songs), set to 0 for no play limit
-var songLengthLimit = process.env["songLengthLimit"] || 0; //set song limit in minutes, set to zero for no limit
-var afkLimit =  process.env["afkLimit"] || 20; //set the afk limit in minutes here
-var roomafkLimit =  process.env["roomafkLimit"] || 1000; //set the afk limit for the audience here(in minutes), this feature is off by default
+
+var LASTFM_KEY = process.env["LASTFM_KEY"]
+var LASTFM_SECRET = process.env["LASTFM_SECRET"]
+var LASTFM_USERNAME =  process.env["LASTFM_USERNAME"]
+var LASTFM_PASSWORD =  process.env["LASTFM_PASSWORD"]
+
+
+var playLimit = parseInt(process.env["playLimit"]) || 4; //set the playlimit here (default 4 songs), set to 0 for no play limit
+var songLengthLimit = parseInt(process.env["songLengthLimit"]) || 0; //set song limit in minutes, set to zero for no limit
+var afkLimit =  parseInt(process.env["afkLimit"]) || 20; //set the afk limit in minutes here
+var roomafkLimit =  parseInt(process.env["roomafkLimit"]) || 1000; //set the afk limit for the audience here(in minutes), this feature is off by default
+
 
 //note that anything added to the script manually will have to be removed from the script manually
 //all the values currently in these arrays are examples and can be removed.
-global.bannedArtists = process.env["bannedArtists"] || []; //banned artist/ song list (MUST BE LOWERCASE)
-global.bannedUsers = process.env["bannedUsers"] || []; //banned users list, put userids in string form here for permanent banning(put their name after their userid to tell who is banned).
-global.bannedFromStage = process.env["bannedFromStage"] || []; //put userids in here to ban from djing permanently(put their name after their userid to tell who is banned)
+global.bannedArtists = process.env["bannedArtists"].split(", ") || ['']; //banned artist/ song list (MUST BE LOWERCASE)
+global.bannedUsers = process.env["bannedUsers"].split(", ")  || ['']; //banned users list, put userids in string form here for permanent banning(put their name after their userid to tell who is banned).
+global.bannedFromStage = process.env["bannedFromStage"].split(", ")  || ['']; //put userids in here to ban from djing permanently(put their name after their userid to tell who is banned)
 
 global.vipList =  process.env["vipList"] || [];
 /* this is the vip list, it accepts userids as input, this is for when you have a special guest or guests in your room and you only
@@ -33,7 +44,7 @@ global.vipList =  process.env["vipList"] || [];
 //these variables set features to on or off as the default when the bot starts up,
 //most of them can be changed with commands while the bot is running
 // true = on, false = off
-var HowManyVotesToSkip = process.env["HowManyVotesToSkip"] || 2; //how many votes for a song to get skipped(default value, only works if voteSkip = true)
+var HowManyVotesToSkip = parseInt(process.env["HowManyVotesToSkip"]) || 2; //how many votes for a song to get skipped(default value, only works if voteSkip = true)
 var getonstage = process.env["getonstage"] || true; //autodjing(on by default)
 var queue = process.env["queue"] || true; //queue(on by default)
 var AFK = process.env["AFK"] || true; //afk limit(on by default), this is for the dj's on stage
@@ -78,6 +89,7 @@ var beginTime = null;
 var endTime = null;
 var roomName = null;
 var ttRoomName = null;
+var lastfm = null;
 
 global.timer = [];
 global.greetingTimer = [];
@@ -110,6 +122,31 @@ var randomPort = Math.ceil(Math.random() * 10000 + 6000);
 var bot = new Bot(AUTH, USERID, ROOMID);
 bot.listen(randomPort, '127.0.0.1');
 
+lastfm = new Lastfm({
+    api_key: LASTFM_KEY,
+    api_secret: LASTFM_SECRET,
+    username: LASTFM_USERNAME,
+    password: LASTFM_PASSWORD,
+})
+
+lastfm.getSessionKey(function(result) {
+        if(result.success) {
+            console.log("LastFM Lift Off")
+        } else {
+            console.log("Error: " + result.error);
+        }
+    });
+
+lfmScrobbler = function scrobber(track) {
+    lastfm.scrobbleNowPlayingTrack({
+        artist: track.artist,
+        track: track.song,
+        callback: function(result) {
+            console.log("in callback, finished scrobble: ", result);
+        }
+    })
+}
+
 //updates the afk list
 justSaw = function (uid)
 {
@@ -121,7 +158,6 @@ justSaw1 = function (uid)
 {
     return lastSeen1[uid] = Date.now();
 }
-
 
 //updates the afk list
 justSaw2 = function (uid)
@@ -357,8 +393,6 @@ setInterval(repeatMessage, 900 * 1000) //repeats this message every 15 mins if /
 
 
 
-
-
 bot.on('newsong', function (data)
 {
     var length = data.room.metadata.current_song.metadata.length;
@@ -444,6 +478,9 @@ bot.on('newsong', function (data)
         }
     }
 
+    // Lastfm Scrobbler:
+    lfmScrobbler(data.room.metadata.current_song.metadata)
+    
 });
 
 

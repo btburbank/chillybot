@@ -134,8 +134,6 @@ the following is a list of commands and how to use them:
 /dive --> removes you from stage if your on stage.
 
 
-
-
 ## QUEUE COMMANDS: (public / moderator)
 
 /queue --> the bot says the queue list in chat if there is one.
