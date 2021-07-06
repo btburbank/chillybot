@@ -1,10 +1,15 @@
 # Fork of chillybot
 Contents: 
-(1. Features)[https://github.com/jaycammarano/chillybot#features]
-(2. Quick Start)[https://github.com/jaycammarano/chillybot#quick-start]
-(3. Linux Bonus Instructions)[https://github.com/jaycammarano/chillybot#linux-bonus-instructions]
-(3.4 Running the bot in the background using screen)[https://github.com/jaycammarano/chillybot#running-the-bot-in-the-background--using-screen]
-(3.5 Auto-restarting the Bot on Crash Using Systemd)[https://github.com/jaycammarano/chillybot#auto-restarting-the-bot-on-crash-using-systemd]
+[1. Features](https://github.com/jaycammarano/chillybot#features)
+
+[2. Quick Start](https://github.com/jaycammarano/chillybot#quick-start)
+
+[3. Linux Bonus Instructions](https://github.com/jaycammarano/chillybot#linux-bonus-instructions)
+
+[3.4 Running the bot in the background using screen](https://github.com/jaycammarano/chillybot#running-the-bot-in-the-background--using-screen)
+
+[3.5 Auto-restarting the Bot on Crash Using Systemd](https://github.com/jaycammarano/chillybot#auto-restarting-the-bot-on-crash-using-systemd)
+
 
 ## chillybot Features
 Features
@@ -65,7 +70,7 @@ https://github.com/alaingilbert/Turntable-API
 
 4. get its user id and auth, and roomid and enter that into the script in the setup section
    make sure that you do this in the room that you want the bot to show up in as every room 
-   has a different room id. In order to find this information out add (this bookmarklet)[http://alaingilbert.github.io/Turntable-API/bookmarklet.html] to
+   has a different room id. In order to find this information out add [this bookmarklet](http://alaingilbert.github.io/Turntable-API/bookmarklet.html) to
    your bookmark bar and use it in the room logged in as the bot 
 
 5. Rename `.env copy` to `.env`, make sure there is not space at the end of the filename
@@ -139,4 +144,4 @@ Optional:
 --------------------------------------------------------------------------------------
 In order to find the userid, auth and roomid of your bot use this bookmark by alain gilbert.
 
-(https://alaingilbert.github.io/Turntable-API/bookmarklet.html)[https://alaingilbert.github.io/Turntable-API/bookmarklet.html]--------------------------------------------------------------------------------------
+[https://alaingilbert.github.io/Turntable-API/bookmarklet.html](https://alaingilbert.github.io/Turntable-API/bookmarklet.html)--------------------------------------------------------------------------------------
