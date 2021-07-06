@@ -1,23 +1,44 @@
 # Fork of chillybot
+Contents: 
+(1. Features)[https://github.com/jaycammarano/chillybot#features]
+(2. Quick Start)[https://github.com/jaycammarano/chillybot#quick-start]
+(3. Linux Bonus Instructions)[https://github.com/jaycammarano/chillybot#linux-bonus-instructions]
+(3.4 Running the bot in the background using screen)[https://github.com/jaycammarano/chillybot#running-the-bot-in-the-background--using-screen]
+(3.5 Auto-restarting the Bot on Crash Using Systemd)[https://github.com/jaycammarano/chillybot#auto-restarting-the-bot-on-crash-using-systemd]
 
 ## chillybot Features
 Features
 ---------------
+
 Queue
+
 afk limit
+
 afk audience limit(separate from afk limit, both can be toggled on and off)
+
 song length limit
+
 ban list
+
 song play limit
+
 vote skipping
+
 room greeting
+
 add songs to your bots playlist
+
 randomize your bots playlist
+
 Vip list (for when special guests come to dj)
+
 autodjing when 3 or less djs or when no djs on stage
+
 skips stuck songs and gives others 20 seconds to skip
+
 very noninstrusive, only enforces the queue when people are in the queue
 (very easy to make it enforce it all the time, just ask)
+
 ability to toggle just about everything
 very easy to use! entirely script based just download node, run the script and your off!
 
@@ -28,8 +49,8 @@ For a full list of commands, please consult the commands.txt file(does not conta
 This is a bot for straight chillin on turntable.fm but the code can be used in any room.
 If you notice any bugs or have any questions, comments, or concerns feel free to open an issue
 and i will try to respond.
-
 -----------------------------------------------------------------------------------
+
 This bot uses the turntable api by alain gilbert which can be found here:
 
 https://github.com/alaingilbert/Turntable-API
@@ -60,10 +81,10 @@ https://github.com/alaingilbert/Turntable-API
 * A last note, the auto djing in this script is meant for a 5 seater room, if you have less than five seats i highly recommend you turn this feature off when you start the bot up with the /getonstage command *
 
 If you cannot get this bot to run for some reason feel free to open an issue on github.
+--------------------------------------------------------------------------------------
 
 # Linux Bonus Instructions
 
---------------------------------------------------------------------------------------
 ## Running the bot in the background  using `screen`
 
 If you want to run the bot in the background and be able to close the terminal:
@@ -79,10 +100,10 @@ If you want to run the bot in the background and be able to close the terminal:
 3. Disconnect from the screen by pressing `ctrl-a` and then `d`
 
 The bot should remain running after you disconnect.
-
-
 --------------------------------------------------------------------------------------
+
 ## Auto-restarting the Bot on Crash Using `Systemd`
+
 1. Rename the provided `chillybot copy.service` to `chillybot.service`
 
 2. Open `chillybot.service` in a text editor
@@ -98,6 +119,7 @@ OPTIONAL: Currently the bot only restarts on crash. If you want it to restart no
 `sudo cp /path/to/chillybot.service /lib/systemd/system/chillybot.service`
 
 6. Restart Systemd:
+
 `sudo systemctl daemon-reload`
 
 7. Start the chillbot servicer:
@@ -109,13 +131,12 @@ OPTIONAL: Currently the bot only restarts on crash. If you want it to restart no
 `systemctl status chillybot.service`
 
 Optional:
-9. If you want chillybot to start on system boot:
-`sudo systemtl enable chillybot`
 
-// If you want it to restart no matter what, change the value from on-failure to always.
+9. If you want chillybot to start on system boot:
+
+`sudo systemtl enable chillybot`
 
 --------------------------------------------------------------------------------------
 In order to find the userid, auth and roomid of your bot use this bookmark by alain gilbert.
 
-https://alaingilbert.github.io/Turntable-API/bookmarklet.html
---------------------------------------------------------------------------------------
+(https://alaingilbert.github.io/Turntable-API/bookmarklet.html)[https://alaingilbert.github.io/Turntable-API/bookmarklet.html]--------------------------------------------------------------------------------------
