@@ -1,3 +1,12 @@
+date: 06/07/2021
+--> created install to a package.json
+--> created .env setup
+--> created systemd setup
+--> npm start instead of node chillybot
+--> npm install instead of npm install tt-api
+--> README.txt to README.md
+
+
 date: 10/14/2012
 
 --> changed the /randomSong command so that it can no longer be called multiple times in a row, it must finish reordering the songs before it executes again.
