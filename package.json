@@ -1,0 +1,31 @@
+{
+  "name": "chillybot-spaghettios-fork",
+  "version": "0.9.0",
+  "description": "Fork of chillybot by btburbank",
+  "author": "@jaycammarano",
+  "main": "chillybot.js",
+  "scripts": {
+    "start": "node chillybot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaycammarano/chillybot.git"
+  },
+  "keywords": [
+    "ttapi",
+    "Turntable-api",
+    "Node.js",
+    "application",
+    "turntable.fm",
+    "bot",
+    "chillybot"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaycammarano/chillybot/issues"
+  },
+  "homepage": "https://github.com/jaycammarano/chillybot#readme",
+  "dependencies": {
+    "ttapi": "^4.0.3"
+  }
+}
