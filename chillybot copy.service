@@ -1,0 +1,17 @@
+[Unit]
+Description=Chillybot Autostart
+Documentation=https://github.com/jaycammarano/chillybot
+After=network.target
+
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
+[Service]
+Restart=on-failure
+RestartSec=5s
+Type=simple
+user=notroot
+ExecStart=/path/to/node /path/to/chillybot.js
+
+[Install]
+WantedBy=multi-user.target

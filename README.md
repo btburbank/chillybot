@@ -61,8 +61,10 @@ https://github.com/alaingilbert/Turntable-API
 
 If you cannot get this bot to run for some reason feel free to open an issue on github.
 
+# Linux Bonus Instructions
+
 --------------------------------------------------------------------------------------
-## Running the bot in the background on Linux using `screen`
+## Running the bot in the background  using `screen`
 
 If you want to run the bot in the background and be able to close the terminal:
 
@@ -78,8 +80,42 @@ If you want to run the bot in the background and be able to close the terminal:
 
 The bot should remain running after you disconnect.
 
+
+--------------------------------------------------------------------------------------
+## Auto-restarting the Bot on Crash Using `Systemd`
+1. Rename the provided `chillybot copy.service` to `chillybot.service`
+
+2. Open `chillybot.service` in a text editor
+
+3. Change the paths on line 14 (ExecStart=) to match your location of node and the location of chillybot.js. You can type `which node` in the terminal to find node's path.
+
+4. Change the user on line 13 to be your user, NOT ROOT for security reasons
+
+OPTIONAL: Currently the bot only restarts on crash. If you want it to restart no matter what, change the value on line 10 from `on-failure` to `always`
+
+5. copy `chillybot.service` to `/lib/systemd/system/` filling in your path to `chillybot.service` below:
+
+`sudo cp /path/to/chillybot.service /lib/systemd/system/chillybot.service`
+
+6. Restart Systemd:
+`sudo systemctl daemon-reload`
+
+7. Start the chillbot servicer:
+
+`sudo systemctl start chillybot`
+
+8. Check that its running:
+
+`systemctl status chillybot.service`
+
+Optional:
+9. If you want chillybot to start on system boot:
+`sudo systemtl enable chillybot`
+
+// If you want it to restart no matter what, change the value from on-failure to always.
+
 --------------------------------------------------------------------------------------
 In order to find the userid, auth and roomid of your bot use this bookmark by alain gilbert.
 
-http://alaingilbert.github.io/Turntable-API/bookmarklet.html
+https://alaingilbert.github.io/Turntable-API/bookmarklet.html
 --------------------------------------------------------------------------------------
