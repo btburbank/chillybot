@@ -54,11 +54,13 @@ For a full list of commands, please consult the commands.txt file(does not conta
 This is a bot for straight chillin on turntable.fm but the code can be used in any room.
 If you notice any bugs or have any questions, comments, or concerns feel free to open an issue
 and i will try to respond.
+
 -----------------------------------------------------------------------------------
 
 This bot uses the turntable api by alain gilbert which can be found here:
 
 https://github.com/alaingilbert/Turntable-API
+
 ------------------------------------------------------------------------------------
 
 ## Quick Start:
@@ -86,6 +88,7 @@ https://github.com/alaingilbert/Turntable-API
 * A last note, the auto djing in this script is meant for a 5 seater room, if you have less than five seats i highly recommend you turn this feature off when you start the bot up with the /getonstage command *
 
 If you cannot get this bot to run for some reason feel free to open an issue on github.
+
 --------------------------------------------------------------------------------------
 
 # Linux Bonus Instructions
@@ -105,6 +108,7 @@ If you want to run the bot in the background and be able to close the terminal:
 3. Disconnect from the screen by pressing `ctrl-a` and then `d`
 
 The bot should remain running after you disconnect.
+
 --------------------------------------------------------------------------------------
 
 ## Auto-restarting the Bot on Crash Using `Systemd`
@@ -144,4 +148,6 @@ Optional:
 --------------------------------------------------------------------------------------
 In order to find the userid, auth and roomid of your bot use this bookmark by alain gilbert.
 
-[https://alaingilbert.github.io/Turntable-API/bookmarklet.html](https://alaingilbert.github.io/Turntable-API/bookmarklet.html)--------------------------------------------------------------------------------------
+[https://alaingilbert.github.io/Turntable-API/bookmarklet.html](https://alaingilbert.github.io/Turntable-API/bookmarklet.html)
+
+--------------------------------------------------------------------------------------
