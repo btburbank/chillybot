@@ -1,0 +1,35 @@
+# REQUIRED SETTINGS
+AUTH=''
+USERID=''
+ROOMID=''
+
+
+# OPTIONAL SETTINGS (will revert to default if blank)
+playLimit=4 #set the playlimit here (default 4 songs), set to 0 for no play limit
+songLengthLimit=0 #set song limit in minutes, set to zero for no limit
+afkLimit=20 #set the afk limit in minutes here
+roomafkLimit=1000 #set the afk limit for the audience here(in minutes), this feature is off by default
+
+# all the values currently in these arrays are examples and can be removed.
+# leave array empty(`[]`) to disable the feature.
+bannedArtists=['name of artist', 'second artist'] #banned artist/ song list (MUST BE LOWERCASE)
+bannedUsers=['636473737373', 'bob', '535253533353', 'joe'] #banned users list, put userids in string form here for permanent banning(put their name after their userid to tell who is banned).
+bannedFromStage=['636473737373', 'bob', '535253533353', 'joe'] #put userids in here to ban from djing permanently(put their name after their userid to tell who is banned)
+
+# this is the vip list, it accepts userids as input, this is for when you have a special guest or guests in your room and you only
+# want to hear them dj, leave this empty unless you want everyone other than the people whos userids are in the vip list to be automatically kicked from stage.
+VIPLIST=[]
+
+#these variables set features to on or off as the default when the bot starts up,
+#most of them can be changed with commands while the bot is running
+# true = on, false = off
+HowManyVotesToSkip=2 #how many votes for a song to get skipped(default value, only works if voteSkip = true)
+getonstage=true #autodjing(on by default)
+queue=true #queue(on by default)
+AFK=true #afk limit(on by default), this is for the dj's on stage
+MESSAGE=false #room message(on by default), the bot says your room info every 15 mins
+GREET=true #room greeting when someone joins the room(on by default)
+voteSkip=false #voteskipping(off by default)
+roomAFK=false #audience afk limit(off by default)
+SONGSTATS=true #song stats after each song(on by default)
+kickTTSTAT=false #kicks the ttstats bot when it tries to join the room(off by default)

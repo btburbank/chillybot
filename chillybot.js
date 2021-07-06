@@ -10,25 +10,22 @@
 
 
 /*******************************BeginSetUp*****************************************************************************/
-
-
 var Bot = require('ttapi');
-var AUTH = 'xxxxxxxxxxxxxxxxxxxxxxxxxx'; //set the auth of your bot here.
-var USERID = 'xxxxxxxxxxxxxxxxxxxxxxxxxx'; //set the userid of your bot here.
-var ROOMID = 'xxxxxxxxxxxxxxxxxxxxxxxxxx'; //set the roomid of the room you want the bot to go to here.
-var playLimit = 4; //set the playlimit here (default 4 songs), set to 0 for no play limit
-var songLengthLimit = 9.5; //set song limit in minutes, set to zero for no limit
-var afkLimit = 20; //set the afk limit in minutes here
-var roomafkLimit = 10; //set the afk limit for the audience here(in minutes), this feature is off by default
+var AUTH = process.env["AUTH"]; //set the auth of your bot here.
+var USERID = process.env["USERID"]; //set the userid of your bot here.
+var ROOMID = process.env["ROOMID"]; //set the roomid of the room you want the bot to go to here.
+var playLimit = process.env["playLimit"] || 4; //set the playlimit here (default 4 songs), set to 0 for no play limit
+var songLengthLimit = process.env["songLengthLimit"] || 0; //set song limit in minutes, set to zero for no limit
+var afkLimit =  process.env["afkLimit"] || 20; //set the afk limit in minutes here
+var roomafkLimit =  process.env["roomafkLimit"] || 1000; //set the afk limit for the audience here(in minutes), this feature is off by default
 
 //note that anything added to the script manually will have to be removed from the script manually
 //all the values currently in these arrays are examples and can be removed.
-global.bannedArtists = ['dj tiesto', 'skrillex', 'lil wayne', 't-pain', 'tpain', 'katy perry', 'eminem', 'porter robinson', //banned artist/ song list (MUST BE LOWERCASE)
-'gorgoroth', 'justin bieber', 'deadmau5', 'rick roll', 'nosia', 'infected mushroom', 'never gonna give you up', 'rick astley', 'spongebob squarepants'];
-global.bannedUsers = ['636473737373', 'bob', '535253533353', 'joe']; //banned users list, put userids in string form here for permanent banning(put their name after their userid to tell who is banned).
-global.bannedFromStage = ['636473737373', 'bob', '535253533353', 'joe']; //put userids in here to ban from djing permanently(put their name after their userid to tell who is banned)
+global.bannedArtists = process.env["bannedArtists"] || []; //banned artist/ song list (MUST BE LOWERCASE)
+global.bannedUsers = process.env["bannedUsers"] || []; //banned users list, put userids in string form here for permanent banning(put their name after their userid to tell who is banned).
+global.bannedFromStage = process.env["bannedFromStage"] || []; //put userids in here to ban from djing permanently(put their name after their userid to tell who is banned)
 
-global.vipList = [];
+global.vipList =  process.env["vipList"] || [];
 /* this is the vip list, it accepts userids as input, this is for when you have a special guest or guests in your room and you only
                         want to hear them dj, leave this empty unless you want everyone other than the people whos userids are in the vip list to be automatically kicked from stage.
                      */
@@ -36,22 +33,22 @@ global.vipList = [];
 //these variables set features to on or off as the default when the bot starts up,
 //most of them can be changed with commands while the bot is running
 // true = on, false = off
-var HowManyVotesToSkip = 2; //how many votes for a song to get skipped(default value, only works if voteSkip = true)
-var getonstage = true; //autodjing(on by default)
-var queue = true; //queue(on by default)
-var AFK = true; //afk limit(on by default), this is for the dj's on stage
-var MESSAGE = true; //room message(on by default), the bot says your room info every 15 mins
-var GREET = true; //room greeting when someone joins the room(on by default)
-var voteSkip = false; //voteskipping(off by default)
-var roomAFK = false; //audience afk limit(off by default)
-var SONGSTATS = true; //song stats after each song(on by default)
-var kickTTSTAT = false; //kicks the ttstats bot when it tries to join the room(off by default)
+var HowManyVotesToSkip = process.env["HowManyVotesToSkip"] || 2; //how many votes for a song to get skipped(default value, only works if voteSkip = true)
+var getonstage = process.env["getonstage"] || true; //autodjing(on by default)
+var queue = process.env["queue"] || true; //queue(on by default)
+var AFK = process.env["AFK"] || true; //afk limit(on by default), this is for the dj's on stage
+var MESSAGE = process.env["MESSAGE"] || false; //room message(on by default), the bot says your room info every 15 mins
+var GREET = process.env["GREET"] || true; //room greeting when someone joins the room(on by default)
+var voteSkip = process.env["voteSkip"] || false; //voteskipping(off by default)
+var roomAFK = process.env["roomAFK"] || false; //audience afk limit(off by default)
+var SONGSTATS = process.env["SONGSTATS"] || true; //song stats after each song(on by default)
+var kickTTSTAT = process.env["kickTTSTAT"] || false; //kicks the ttstats bot when it tries to join the room(off by default)
 
 
 /************************************EndSetUp**********************************************************************/
 
 
-var spamLimit = 3; //number of times a user can spam being kicked off the stage within 10 secs
+var spamLimit = 10; //number of times a user can spam being kicked off the stage within 10 secs
 var myId = null;
 var detail = null;
 var current = null;
@@ -437,13 +434,13 @@ bot.on('newsong', function (data)
     {
         if (songLengthLimit !== 0 && modIndex == -1)
         {
-            bot.speak("@" + theUsersList[checkLast + 1] + ", your song is over " + songLengthLimit + " mins long, you have 20 seconds to skip before being removed.");
+            bot.speak("@" + theUsersList[checkLast + 1] + ", your song is over " + songLengthLimit + " mins long, you have 90 seconds to skip before being removed.");
             //START THE 20 SEC TIMER
             songLimitTimer = setTimeout(function ()
             {
                 songLimitTimer = null;
                 bot.remDj(lastdj); // Remove Saved DJ from last newsong call
-            }, 20 * 1000); // Current DJ has 20 seconds to skip before they are removed
+            }, 90 * 1000); // Current DJ has 90 seconds to skip before they are removed
         }
     }
 
@@ -939,13 +936,13 @@ bot.on('speak', function (data)
         switch (x)
         {
             case 0:
-                bot.speak('@' + name + ' ur mom is fat');
+                bot.speak('@' + name + ' ur mom is nice');
                 break;
             case 1:
-                bot.speak('@' + name + ' yo momma sooo fat....');
+                bot.speak('@' + name + ' yo momma sooo nice....');
                 break;
             case 2:
-                bot.speak('@' + name + ' damn yo momma fat');
+                bot.speak('@' + name + ' damn yo momma nice');
                 break;
             case 3:
                 bot.speak('@' + name + ' your mother is an outstanding member of the community ' +

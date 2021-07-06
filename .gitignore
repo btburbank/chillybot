@@ -165,3 +165,4 @@ pip-log.txt
 
 # Node Stuff
 node_modules
+.env

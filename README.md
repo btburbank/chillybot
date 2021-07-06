@@ -35,7 +35,7 @@ This bot uses the turntable api by alain gilbert which can be found here:
 https://github.com/alaingilbert/Turntable-API
 ------------------------------------------------------------------------------------
 
-## Instructions to Install:
+## Quick Start:
 1. download node.js from nodejs.org
 
 2. download dependancys(the turntable api) by opening up command prompt and typing in `npm install` in the same directory that you will be running the script from.
@@ -47,7 +47,9 @@ https://github.com/alaingilbert/Turntable-API
    has a different room id. In order to find this information out add (this bookmarklet)[http://alaingilbert.github.io/Turntable-API/bookmarklet.html] to
    your bookmark bar and use it in the room logged in as the bot 
 
-5. open up the script (you can do this with notepad or notepad++, i recommend notepad++) and enter in the data it asks for in the setup section at the top of the script (read the instructions carefully)
+5. Rename `.env copy` to `.env`, make sure there is not space at the end of the filename
+
+6. Fill out `.env` with the settings it asks for. Only USERID, ROOMID, and AUTH are required.
 
 6. open up command prompt and change directory to the directory that your script is in, in windows this is the CD command, so if the script is in a folder called chillybot on your desktop on your C drive it would look something like this (CD C:\Users\username\desktop\chillybot), this will vary depending on what your path is, to find out your exact path right click on the chillybot.js file and go to properties, Location is your exact path, do not include the chillybot.js file in your CD command, it will not find it.
 
