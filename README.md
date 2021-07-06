@@ -8,9 +8,9 @@
 
 [3. Linux Bonus Instructions](https://github.com/jaycammarano/chillybot#linux-bonus-instructions)
 
-[3.4 Running the bot in the background using screen](https://github.com/jaycammarano/chillybot#running-the-bot-in-the-background--using-screen)
+[3.a Running the bot in the background using screen](https://github.com/jaycammarano/chillybot#running-the-bot-in-the-background--using-screen)
 
-[3.5 Auto-restarting the Bot on Crash Using Systemd](https://github.com/jaycammarano/chillybot#auto-restarting-the-bot-on-crash-using-systemd)
+[3.b Auto-restarting the Bot on Crash Using Systemd](https://github.com/jaycammarano/chillybot#auto-restarting-the-bot-on-crash-using-systemd)
 
 
 ## chillybot Features
