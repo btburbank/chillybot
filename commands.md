@@ -3,7 +3,7 @@ the following is a list of commands and how to use them:
 *note < > are parameters not literals, do not include the < > in your command usage.*
 *note when you see @name type an @ symbol before the persons name, this is because the @symbol gives an autofill option in turntable*
 
-ADMIN ONLY COMMANDS: (moderator only)
+## ADMIN ONLY COMMANDS: (moderator only)
 
 /stage<space><@name> --> removes the person specified from the stage.
 
@@ -75,10 +75,7 @@ ADMIN ONLY COMMANDS: (moderator only)
 
 /modpm --> pms all mods in the room
 
-
-
-
-COMMANDS: (public)
+## COMMANDS: (public)
 
 /commands --> shows a list of the bots public commands.
 
@@ -139,7 +136,7 @@ COMMANDS: (public)
 
 
 
-QUEUE COMMANDS: (public / moderator)
+## QUEUE COMMANDS: (public / moderator)
 
 /queue --> the bot says the queue list in chat if there is one.
 
@@ -154,7 +151,7 @@ QUEUE COMMANDS: (public / moderator)
 /queueOff --> turns the queue off. (moderator only)
 
 
-PM COMMANDS: (public)
+## PM COMMANDS: (public)
 
 /chilly --> the bot says the user is chill in chat.
 
