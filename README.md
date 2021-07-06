@@ -1,6 +1,13 @@
 # Fork of chillybot
 
-##Contents: 
+*Credits*
+This bot uses the turntable api by alain gilbert which can be found here:
+
+https://github.com/alaingilbert/Turntable-API
+
+this bot is a fork of btburbank's chillybot
+
+## Contents: 
 
 [1. Features](https://github.com/jaycammarano/chillybot#features)
 
@@ -11,7 +18,6 @@
 [3.a Running the bot in the background using screen](https://github.com/jaycammarano/chillybot#running-the-bot-in-the-background--using-screen)
 
 [3.b Auto-restarting the Bot on Crash Using Systemd](https://github.com/jaycammarano/chillybot#auto-restarting-the-bot-on-crash-using-systemd)
-
 
 ## chillybot Features
 Features
@@ -56,11 +62,6 @@ For a full list of commands, please consult the commands.txt file(does not conta
 This is a bot for straight chillin on turntable.fm but the code can be used in any room.
 If you notice any bugs or have any questions, comments, or concerns feel free to open an issue
 and i will try to respond.
-
-This bot uses the turntable api by alain gilbert which can be found here:
-
-https://github.com/alaingilbert/Turntable-API
-
 
 ## Quick Start:
 1. download node.js from nodejs.org
