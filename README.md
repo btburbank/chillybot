@@ -1,5 +1,7 @@
 # Fork of chillybot
-Contents: 
+
+##Contents: 
+
 [1. Features](https://github.com/jaycammarano/chillybot#features)
 
 [2. Quick Start](https://github.com/jaycammarano/chillybot#quick-start)
@@ -55,13 +57,10 @@ This is a bot for straight chillin on turntable.fm but the code can be used in a
 If you notice any bugs or have any questions, comments, or concerns feel free to open an issue
 and i will try to respond.
 
------------------------------------------------------------------------------------
-
 This bot uses the turntable api by alain gilbert which can be found here:
 
 https://github.com/alaingilbert/Turntable-API
 
-------------------------------------------------------------------------------------
 
 ## Quick Start:
 1. download node.js from nodejs.org
@@ -89,8 +88,6 @@ https://github.com/alaingilbert/Turntable-API
 
 If you cannot get this bot to run for some reason feel free to open an issue on github.
 
---------------------------------------------------------------------------------------
-
 # Linux Bonus Instructions
 
 ## Running the bot in the background  using `screen`
@@ -108,8 +105,6 @@ If you want to run the bot in the background and be able to close the terminal:
 3. Disconnect from the screen by pressing `ctrl-a` and then `d`
 
 The bot should remain running after you disconnect.
-
---------------------------------------------------------------------------------------
 
 ## Auto-restarting the Bot on Crash Using `Systemd`
 
@@ -144,10 +139,3 @@ Optional:
 9. If you want chillybot to start on system boot:
 
 `sudo systemtl enable chillybot`
-
---------------------------------------------------------------------------------------
-In order to find the userid, auth and roomid of your bot use this bookmark by alain gilbert.
-
-[https://alaingilbert.github.io/Turntable-API/bookmarklet.html](https://alaingilbert.github.io/Turntable-API/bookmarklet.html)
-
---------------------------------------------------------------------------------------
