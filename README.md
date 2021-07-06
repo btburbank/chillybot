@@ -1,5 +1,7 @@
 # Fork of chillybot
 
+A moderation bot for rooms on [turntable.fm](turntable.fm)
+
 *Credits*
 
 This bot uses the turntable api by alain gilbert which can be found here:
